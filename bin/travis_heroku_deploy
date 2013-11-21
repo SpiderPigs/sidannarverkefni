@@ -1,0 +1,26 @@
+#!/bin/bash
+
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+# push to production only if on the production branch
+if [ TRAVIS_BRANCH = "production" ]; then
+   git remote add heroku git@heroku.com:spiderpigs.git
+else
+   git remote add heroku git@heroku.com:spiderpigs-staging.git
+fi
+
+# Turn off warnings about SSH keys:
+echo "Host heroku.com" >> ~/.ssh/config
+echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+echo "   CheckHostIP no" >> ~/.ssh/config
+echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+# Clear your current Heroku SSH keys:
+heroku keys:clear
+# Add a new SSH key to Heroku
+yes | heroku keys:add
+
+if [ TRAVIS_BRANCH = "production" ]; then
+   yes | git push heroku production:master
+else
+	yes | git push heroku TRAVIS_BRANCH:master
+fi
