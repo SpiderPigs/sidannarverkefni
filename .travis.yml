@@ -14,3 +14,8 @@ script:
 env:
   global:
     secure: Ol+4NGkcylAcdlBKnFxei0MleZBot+R4H+AfSOMXXLwqqk0/6Br93GFkfLc0AOAbVIFQ+ZpEv1oSTWQmxlkWCN/NXtL0dCY8K8fbs8mZkKCwipN6x7TkXYZDmZUC8BnxDGIxCadGuvAbqKwYbfP/bDORkfdCFAbjhy4mdoYwvok=
+
+branches:
+  only:
+    - master
+    - production
