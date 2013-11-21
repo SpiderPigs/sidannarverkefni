@@ -3,7 +3,7 @@
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 # push to production only if on the production branch
-if [ TRAVIS_BRANCH = "production" ]; then
+if [ "$TRAVIS_BRANCH" = "production" ]; then
    git remote add heroku git@heroku.com:spiderpigs.git
 else
    git remote add heroku git@heroku.com:spiderpigs-staging.git
@@ -19,7 +19,7 @@ heroku keys:clear
 # Add a new SSH key to Heroku
 yes | heroku keys:add
 
-if [ TRAVIS_BRANCH = "production" ]; then
+if [ "$TRAVIS_BRANCH" = "production" ]; then
    yes | git push -f heroku production:master
 else
 	yes | git push -f heroku master
