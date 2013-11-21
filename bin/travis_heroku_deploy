@@ -20,7 +20,7 @@ heroku keys:clear
 yes | heroku keys:add
 
 if [ TRAVIS_BRANCH = "production" ]; then
-   yes | git push heroku production:master
+   yes | git push -f heroku production:master
 else
-	yes | git push heroku TRAVIS_BRANCH:master
+	yes | git push -f heroku master:master
 fi
