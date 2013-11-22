@@ -1,14 +1,25 @@
-package is.ru.helloworld;
+package is.ru.hugb.spiderpigs;
 
-import spark.*;
+import spark.Request;
+import spark.Response;
+import spark.Route;
 
-import static spark.Spark.*;
+import static spark.Spark.get;
+import static spark.Spark.post;
+import static spark.Spark.staticFileLocation;
 
-public class HelloWorld {
+/**
+ * Created with IntelliJ IDEA.
+ * User: Grimur
+ * Date: 22.11.2013
+ * Time: 12:11
+ * To change this template use File | Settings | File Templates.
+ */
+public class TicTacToe {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        
-        
+
+
 
         post(new Route("/add") {
             @Override
@@ -27,4 +38,3 @@ public class HelloWorld {
         });
     }
 }
-
