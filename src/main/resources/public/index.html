@@ -69,6 +69,7 @@
             var form = $("#game-form");
             $.ajax({
                url: form.attr("action"),
+               type: "POST",
                data: form.serialize(),
                 success: function() {
                     alert("lol");
