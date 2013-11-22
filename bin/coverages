@@ -1,4 +1,11 @@
 #!/bin/bash
 
 mvn cobertura:cobertura
-firefox target/site/cobertura/index.html
+
+# open the stats
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+   open target/site/cobertura/index.html
+else
+   firefox target/site/cobertura/index.html
+fi
