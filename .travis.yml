@@ -4,4 +4,6 @@ jdk: openjdk7
 deploy:
   provider: heroku
   api_key: 44aed1bf-46f1-4a49-9949-840cebc1113f
-  app: spiderpigs-staging
+  app:
+    master: spiderpigs-staging
+    production: spiderpigs
