@@ -1,4 +1,4 @@
 #!/bin/bash
 
 mvn cobertura:cobertura
-open target/site/cobertura/index.html
+firefox target/site/cobertura/index.html
