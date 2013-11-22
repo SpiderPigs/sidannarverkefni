@@ -1,12 +1,8 @@
 package is.ru.hugb.spiderpigs;
 
-import spark.Request;
-import spark.Response;
-import spark.Route;
+import spark.*;
 
-import static spark.Spark.get;
-import static spark.Spark.post;
-import static spark.Spark.staticFileLocation;
+import static spark.Spark.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,7 +15,7 @@ public class TicTacToe {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
-
+        setPort(Integer.valueOf(System.getenv("PORT")));
 
         post(new Route("/play") {
             @Override
@@ -63,19 +59,19 @@ public class TicTacToe {
                         + "<div id=\"game\">\n"
                         + "<table>\n"
                         + "<tr>\n"
-                        + "<td class=\"tile\" data-coords=\"x0y0\">"+ (ticTacToeBoard[0][0].isEmpty() ? "F" : ticTacToeBoard[0][0]) + "</td>\n"
-                        + "<td class=\"tile\" data-coords=\"x1y0\">"+ (ticTacToeBoard[1][0].isEmpty() ? "F" : ticTacToeBoard[1][0]) + "</td>\n"
-                        + "<td class=\"tile\" data-coords=\"x2y0\">"+ (ticTacToeBoard[2][0].isEmpty() ? "F" : ticTacToeBoard[2][0]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x0y0\">"+ (ticTacToeBoard[0][0].isEmpty() ? " " : ticTacToeBoard[0][0]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x1y0\">"+ (ticTacToeBoard[1][0].isEmpty() ? " " : ticTacToeBoard[1][0]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x2y0\">"+ (ticTacToeBoard[2][0].isEmpty() ? " " : ticTacToeBoard[2][0]) + "</td>\n"
                         + "</tr>\n"
                         + "<tr>\n"
-                        + "<td class=\"tile\" data-coords=\"x0y1\">"+ (ticTacToeBoard[0][1].isEmpty() ? "F" : ticTacToeBoard[0][1]) + "</td>\n"
-                        + "<td class=\"tile\" data-coords=\"x1y1\">"+ (ticTacToeBoard[1][1].isEmpty() ? "F" : ticTacToeBoard[1][1]) + "</td>\n"
-                        + "<td class=\"tile\" data-coords=\"x2y1\">"+ (ticTacToeBoard[2][1].isEmpty() ? "F" : ticTacToeBoard[2][1]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x0y1\">"+ (ticTacToeBoard[0][1].isEmpty() ? " " : ticTacToeBoard[0][1]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x1y1\">"+ (ticTacToeBoard[1][1].isEmpty() ? " " : ticTacToeBoard[1][1]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x2y1\">"+ (ticTacToeBoard[2][1].isEmpty() ? " " : ticTacToeBoard[2][1]) + "</td>\n"
                         + "</tr>\n"
                         + "<tr>\n"
-                        + "<td class=\"tile\" data-coords=\"x0y2\">"+ (ticTacToeBoard[0][1].isEmpty() ? "F" : ticTacToeBoard[0][2]) + "</td>\n"
-                        + "<td class=\"tile\" data-coords=\"x1y2\">"+ (ticTacToeBoard[1][1].isEmpty() ? "F" : ticTacToeBoard[1][2]) + "</td>\n"
-                        + "<td class=\"tile\" data-coords=\"x2y2\">"+ (ticTacToeBoard[2][1].isEmpty() ? "F" : ticTacToeBoard[2][2]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x0y2\">"+ (ticTacToeBoard[0][1].isEmpty() ? " " : ticTacToeBoard[0][2]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x1y2\">"+ (ticTacToeBoard[1][1].isEmpty() ? " " : ticTacToeBoard[1][2]) + "</td>\n"
+                        + "<td class=\"tile\" id=\"x2y2\">"+ (ticTacToeBoard[2][1].isEmpty() ? " " : ticTacToeBoard[2][2]) + "</td>\n"
                         + "\n"
                         + "</tr>\n"
                         + "</table>\n"
