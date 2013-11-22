@@ -8,8 +8,8 @@ before_script:
 script:
   - ./bin/unit_test
   - ./bin/travis_heroku_deploy
-  - sleep 10 # wait for heroku to serve the app.
-  - ./bin/e2e_test_travis
+  - sleep 20 # wait for heroku to serve the app.
+  - if [ ! "$TRAVIS_BRANCH" = "production" ]; then ./bin/e2e_test_travis fi
 
 env:
   global:
