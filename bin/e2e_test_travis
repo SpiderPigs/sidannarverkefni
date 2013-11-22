@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Run tests
+mvn test-compile failsafe:integration-test
