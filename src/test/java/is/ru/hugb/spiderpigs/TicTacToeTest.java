@@ -15,6 +15,11 @@ public class TicTacToeTest {
 
 	
 	private TicTacToe board;
+
+	@Before
+	public void CreateInstance() {
+		board = new TicTacToe();
+	}
 	
 	@Test
 	public void isBoardEmpty() {

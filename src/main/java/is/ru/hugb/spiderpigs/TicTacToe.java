@@ -43,7 +43,7 @@ public class TicTacToe {
         // Horizontal
         for(int i = 0; i < 3; i++)
         {
-            if( (ticTacToeBoard[0][i] == ticTacToeBoard[1][i]) && (ticTacToeBoard[1][i] == ticTacToeBoard[2][i]) && (ticTacToeBoard[i][0] != "0") )
+            if( (ticTacToeBoard[0][i] == ticTacToeBoard[1][i]) && (ticTacToeBoard[1][i] == ticTacToeBoard[2][i]) && (ticTacToeBoard[0][i] != "0") )
             {
                 return true;
             }
