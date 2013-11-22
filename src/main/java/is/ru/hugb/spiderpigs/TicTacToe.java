@@ -20,10 +20,9 @@ public class TicTacToe {
     String[][] ticTacToeBoard = new String[3][3];
 
     public TicTacToe(){
-        for(String v : ticTacToeBoard)
-        {
-            v = "0";
-        }
+        for(int i = 0; i < 3; i++)
+            for(int k = 0; k < 3; k++)
+                ticTacToeBoard[i][k] = "0";
     }
 
     public boolean isEmpty() {
@@ -35,7 +34,6 @@ public class TicTacToe {
     }
 
     public boolean someoneWinner() {
-        String[][] ticTacToeBoard = ticTacToeBoard;
 
         // Vertical
         for(int i = 0; i < 3; i++)
