@@ -13,14 +13,14 @@ import static junit.framework.Assert.*;
 
 public class TicTacToeTest {
 
-	
+
 	private TicTacToe board;
 
 	@Before
-	public void CreateInstance() {
+	public void setup() {
 		board = new TicTacToe();
 	}
-	
+
 	@Test
 	public void isBoardEmpty() {
 		//Board empty when created
