@@ -61,21 +61,23 @@
         $("#game-body").on("click",".tile", function(e) {
             e.preventDefault();
             var tile = $(e.target);
-            tile.attr("class")
-            var coords = tile.attr("id");
-            console.log(coords);
-            var currentPlayer = $("#current-player").val();
-            console.log(currentPlayer);
-            $("input[name='" + coords + "']").val(currentPlayer);
-            var form = $("#game-form");
-            $.ajax({
-               url: form.attr("action"),
-               type: "POST",
-               data: form.serialize(),
-                success: function(response) {
-                    $("#game-body").html(response);
-                }
-            });
+            if(!tile.hasClass("checked")) {
+                tile.attr("class")
+                var coords = tile.attr("id");
+                console.log(coords);
+                var currentPlayer = $("#current-player").val();
+                console.log(currentPlayer);
+                $("input[name='" + coords + "']").val(currentPlayer);
+                var form = $("#game-form");
+                $.ajax({
+                   url: form.attr("action"),
+                   type: "POST",
+                   data: form.serialize(),
+                    success: function(response) {
+                        $("#game-body").html(response);
+                    }
+                });
+            }
         })
 
 
