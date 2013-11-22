@@ -1,9 +1,21 @@
 language: java
 jdk: openjdk7
 
-deploy:
-  provider: heroku
-  api_key: 44aed1bf-46f1-4a49-9949-840cebc1113f
-  app:
-    master: spiderpigs-staging
-    production: spiderpigs
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
+script:
+  - ./bin/unit_test
+  - ./bin/travis_heroku_deploy
+  - sleep 20 # wait for heroku to serve the app.
+  - if [ ! "$TRAVIS_BRANCH" = "production" ]; then ./bin/e2e_test_travis fi
+
+env:
+  global:
+    secure: Ol+4NGkcylAcdlBKnFxei0MleZBot+R4H+AfSOMXXLwqqk0/6Br93GFkfLc0AOAbVIFQ+ZpEv1oSTWQmxlkWCN/NXtL0dCY8K8fbs8mZkKCwipN6x7TkXYZDmZUC8BnxDGIxCadGuvAbqKwYbfP/bDORkfdCFAbjhy4mdoYwvok=
+
+branches:
+  only:
+    - master
+    - production

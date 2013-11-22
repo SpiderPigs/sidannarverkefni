@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mvn cobertura:cobertura
+open target/site/cobertura/index.html
