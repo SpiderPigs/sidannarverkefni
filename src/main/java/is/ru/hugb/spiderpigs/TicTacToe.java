@@ -64,7 +64,7 @@ public class TicTacToe {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
-        // setPort(Integer.valueOf(System.getenv("PORT")));
+        setPort(Integer.valueOf(System.getenv("PORT")));
 
         post(new Route("/play") {
             @Override
