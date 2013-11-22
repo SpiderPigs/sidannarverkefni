@@ -1,4 +1,4 @@
-package is.ru.helloworld;
+package is.ru.hugb.spiderpigs;
 
 import static org.junit.Assert.assertEquals;
 
@@ -44,10 +44,4 @@ public class ChromeTestTitleIT {
      public void quitDriver() {
          driver.quit();
      }
-
-     @Test
-     public void testTitle() throws Exception {
-      driver.get("http://localhost:4567");
-      assertEquals("Hello world", driver.getTitle());
-    }
 }

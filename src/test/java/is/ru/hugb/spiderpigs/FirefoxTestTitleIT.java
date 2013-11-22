@@ -1,4 +1,4 @@
-package is.ru.helloworld;
+package is.ru.hugb.spiderpigs;
 
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
