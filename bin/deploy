@@ -2,4 +2,5 @@
 
 git checkout production
 git merge master
-git push production
+git push origin production
+git checkout master
