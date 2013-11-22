@@ -21,7 +21,7 @@ public class TicTacToe {
 
 
 
-        post(new Route("/add") {
+        post(new Route("/play") {
             @Override
             public Object handle(Request request, Response response) {
                 Integer a = Integer.valueOf(request.queryParams("a"));

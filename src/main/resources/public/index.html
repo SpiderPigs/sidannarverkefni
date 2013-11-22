@@ -16,18 +16,38 @@
 
       <p>Leggðu saman tvær tölur að eigin vali og sannreyndu útkomuna.</p>
 
-      <form method="post" action="/add" class="form-inline" role="form">
-        <div class="form-group">
-          <input type="text" class="form-control" name="a" id="a" placeholder="Tala 1">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" name="b" id="b" placeholder="Tala 2">
-        </div>
-        <button type="submit" class="btn btn-default">Sign in</button>
-        <input type="hidden" name="x0y0" value="O"/>
+      <form method="post" action="/play" class="hidden" id="game-form">
+          <input type="hidden" name="current-player" id="current-player" value="X"/>
+          <input type="hidden" name="x0y0" />
+          <input type="hidden" name="x1y0" />
+          <input type="hidden" name="x2y0" />
+          <input type="hidden" name="x0y1" />
+          <input type="hidden" name="x1y1" />
+          <input type="hidden" name="x2y1" />
+          <input type="hidden" name="x0y2" />
+          <input type="hidden" name="x1y2" />
+          <input type="hidden" name="x2y2" />
       </form>
       <hr>
-      <div id="results">
+      <div id="game">
+          <table>
+              <tr>
+                  <td class="tile" data-coords="x0y0">x0y0</td>
+                  <td class="tile" data-coords="x1y0">x1y0</td>
+                  <td class="tile" data-coords="x2y0">x2y0</td>
+              </tr>
+              <tr>
+                  <td class="tile" data-coords="x0y1">x0y1</td>
+                  <td class="tile" data-coords="x1y1">x1y1</td>
+                  <td class="tile" data-coords="x2y1">x2y1</td>
+              </tr>
+              <tr>
+                  <td class="tile" data-coords="x0y2">x0y2</td>
+                  <td class="tile" data-coords="x1y2">x1y2</td>
+                  <td class="tile" data-coords="x2y2">x2y2</td>
+
+              </tr>
+          </table>
       </div>
     </div>
 
@@ -37,21 +57,26 @@
     <!-- use ajax to submit form, retreive the result and display on the page -->
     <script>
     $(document).ready(function() {
-      var form = $('form');
-      form.submit(function(e) {
-        var a = $("#a").val();
-        var b = $("#b").val();
-        $.ajax({
-          type: form.attr('method'),
-          url: form.attr('action'),
-          data: form.serialize()
-        }).done(function(sum) {
-          $('#results').html(a + ' + ' + b + ' = ' + sum).attr('class', 'alert alert-success');
-        }).fail(function() {
-          $('#results').html('Villa kom upp við að leggja saman "' + a + ' + ' + b + '"').attr('class', 'alert alert-danger');
-        });
-        e.preventDefault();
-      });
+        $(".tile").click(function(e) {
+            e.preventDefault();
+            var tile = $(e.target);
+            tile.attr("class")
+            var coords = tile.attr("data-coords");
+            console.log(coords);
+            var currentPlayer = $("#current-player").val();
+            console.log(currentPlayer);
+            $("input[name='" + coords + "']").val(currentPlayer);
+            var form = $("#game-form");
+            $.ajax({
+               url: form.attr("action"),
+               data: form.serialize(),
+                success: function() {
+                    alert("lol");
+                }
+            });
+        })
+
+
     });
     </script>
   </body>
