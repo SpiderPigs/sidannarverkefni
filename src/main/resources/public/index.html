@@ -14,41 +14,41 @@
     <div class="container">
       <h1>Welcome to Tic,Tac, Toe!</h1>
 
-      <p>Leggðu saman tvær tölur að eigin vali og sannreyndu útkomuna.</p>
+      <div id="game-body">
 
-      <form method="post" action="/play" class="hidden" id="game-form">
-          <input type="hidden" name="current-player" id="current-player" value="X"/>
-          <input type="hidden" name="x0y0" />
-          <input type="hidden" name="x1y0" />
-          <input type="hidden" name="x2y0" />
-          <input type="hidden" name="x0y1" />
-          <input type="hidden" name="x1y1" />
-          <input type="hidden" name="x2y1" />
-          <input type="hidden" name="x0y2" />
-          <input type="hidden" name="x1y2" />
-          <input type="hidden" name="x2y2" />
-      </form>
-      <hr>
-      <div id="game">
-          <table>
-              <tr>
-                  <td class="tile" data-coords="x0y0">x0y0</td>
-                  <td class="tile" data-coords="x1y0">x1y0</td>
-                  <td class="tile" data-coords="x2y0">x2y0</td>
-              </tr>
-              <tr>
-                  <td class="tile" data-coords="x0y1">x0y1</td>
-                  <td class="tile" data-coords="x1y1">x1y1</td>
-                  <td class="tile" data-coords="x2y1">x2y1</td>
-              </tr>
-              <tr>
-                  <td class="tile" data-coords="x0y2">x0y2</td>
-                  <td class="tile" data-coords="x1y2">x1y2</td>
-                  <td class="tile" data-coords="x2y2">x2y2</td>
+          <form method="post" action="/play" class="hidden" id="game-form">
+              <input type="hidden" name="current-player" id="current-player" value="X"/>
+              <input type="hidden" name="x0y0" />
+              <input type="hidden" name="x1y0" />
+              <input type="hidden" name="x2y0" />
+              <input type="hidden" name="x0y1" />
+              <input type="hidden" name="x1y1" />
+              <input type="hidden" name="x2y1" />
+              <input type="hidden" name="x0y2" />
+              <input type="hidden" name="x1y2" />
+              <input type="hidden" name="x2y2" />
+          </form>
+          <div id="game">
+              <table>
+                  <tr>
+                      <td class="tile" data-coords="x0y0">x0y0</td>
+                      <td class="tile" data-coords="x1y0">x1y0</td>
+                      <td class="tile" data-coords="x2y0">x2y0</td>
+                  </tr>
+                  <tr>
+                      <td class="tile" data-coords="x0y1">x0y1</td>
+                      <td class="tile" data-coords="x1y1">x1y1</td>
+                      <td class="tile" data-coords="x2y1">x2y1</td>
+                  </tr>
+                  <tr>
+                      <td class="tile" data-coords="x0y2">x0y2</td>
+                      <td class="tile" data-coords="x1y2">x1y2</td>
+                      <td class="tile" data-coords="x2y2">x2y2</td>
 
-              </tr>
-          </table>
-      </div>
+                  </tr>
+              </table>
+          </div>
+        </div>
     </div>
 
     <!-- load jquery -->
@@ -57,7 +57,7 @@
     <!-- use ajax to submit form, retreive the result and display on the page -->
     <script>
     $(document).ready(function() {
-        $(".tile").click(function(e) {
+        $("#game-body").on("click",".tile", function(e) {
             e.preventDefault();
             var tile = $(e.target);
             tile.attr("class")
@@ -71,8 +71,8 @@
                url: form.attr("action"),
                type: "POST",
                data: form.serialize(),
-                success: function() {
-                    alert("lol");
+                success: function(response) {
+                    $("#game-body").html(response);
                 }
             });
         })
