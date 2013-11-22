@@ -13,8 +13,9 @@ import static junit.framework.Assert.*;
 
 public class TicTacToeTest {
 
-	private int board;
-
+	
+	private TicTacToe board;
+	
 	@Test
 	public void isBoardEmpty() {
 		//Board empty when created
@@ -23,5 +24,10 @@ public class TicTacToeTest {
 	@Test
 	public void boardIsNotEmpty() {
 		// assertEquals(false, this.board.isFull());
+	}
+
+	@Test
+	public void gameSomeoneWinner() {
+		assertEquals(false, this.board.someoneWinner());
 	}
 }

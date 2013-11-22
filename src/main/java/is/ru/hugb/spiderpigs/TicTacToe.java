@@ -12,6 +12,57 @@ import static spark.Spark.*;
  * To change this template use File | Settings | File Templates.
  */
 public class TicTacToe {
+
+    String[][] ticTacToeBoard = new String[3][3];
+
+    public TicTacToe(){
+        for(String v : ticTacToeBoard)
+        {
+            v = "0";
+        }
+    }
+
+    public boolean isEmpty() {
+        return true;
+    }
+
+    public boolean isFull() {
+        return true;
+    }
+
+    public boolean someoneWinner() {
+        String[][] ticTacToeBoard = ticTacToeBoard;
+
+        // Vertical
+        for(int i = 0; i < 3; i++)
+        {
+            if( (ticTacToeBoard[i][0] == ticTacToeBoard[i][1]) && (ticTacToeBoard[i][1] == ticTacToeBoard[i][2]) && (ticTacToeBoard[i][0] != "0") )
+            {
+                return true;
+            }
+        }
+
+        // Horizontal
+        for(int i = 0; i < 3; i++)
+        {
+            if( (ticTacToeBoard[0][i] == ticTacToeBoard[1][i]) && (ticTacToeBoard[1][i] == ticTacToeBoard[2][i]) && (ticTacToeBoard[i][0] != "0") )
+            {
+                return true;
+            }
+        }
+
+        // Diagonal - Down
+        if( (ticTacToeBoard[0][0] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][2]) && (ticTacToeBoard[0][0] != "0") )
+            return true;
+
+        // Diagonal - Up
+        if( (ticTacToeBoard[0][2] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][0]) && (ticTacToeBoard[0][2] != "0") )
+            return true;
+
+        return false;
+    }
+
+
     public static void main(String[] args) {
         staticFileLocation("/public");
 
@@ -86,6 +137,13 @@ public class TicTacToe {
             public Object handle(Request request, Response response) {
                 return "Hello World!";
             }
+        });
+
+        get(new Route("/isWinner") {
+            @Override
+             public Object handle(Request request, Response response) {
+                return "Hello";
+             }
         });
     }
 }
