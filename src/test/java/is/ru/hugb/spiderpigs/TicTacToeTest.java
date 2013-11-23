@@ -87,8 +87,8 @@ public class TicTacToeTest {
     public void testY0HorizontalWin() {
         String[][] wonGame = new String[3][3];
         wonGame[0][0] = "X";
-        wonGame[0][0] = "X";
-        wonGame[0][0] = "X";
+        wonGame[0][1] = "X";
+        wonGame[0][2] = "X";
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -97,8 +97,8 @@ public class TicTacToeTest {
     public void testY1HorizontalWin() {
         String[][] wonGame = new String[3][3];
         wonGame[1][0] = "X";
-        wonGame[1][0] = "X";
-        wonGame[1][0] = "X";
+        wonGame[1][1] = "X";
+        wonGame[1][2] = "X";
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -107,8 +107,8 @@ public class TicTacToeTest {
     public void testY2HorizontalWin() {
         String[][] wonGame = new String[3][3];
         wonGame[2][0] = "X";
-        wonGame[2][0] = "X";
-        wonGame[2][0] = "X";
+        wonGame[2][1] = "X";
+        wonGame[2][2] = "X";
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -129,6 +129,36 @@ public class TicTacToeTest {
         wonGame[2][2] = "X";
         wonGame[1][1] = "X";
         wonGame[0][0] = "X";
+        board.setTicTacToeBoard(wonGame);
+        assertEquals(true, this.board.someoneWinner());
+    }
+
+    @Test
+    public void testY0VerticalWin() {
+        String[][] wonGame = new String[3][3];
+        wonGame[0][0] = "X";
+        wonGame[1][0] = "X";
+        wonGame[2][0] = "X";
+        board.setTicTacToeBoard(wonGame);
+        assertEquals(true, this.board.someoneWinner());
+    }
+
+    @Test
+    public void testY1VerticalWin() {
+        String[][] wonGame = new String[3][3];
+        wonGame[0][1] = "X";
+        wonGame[1][1] = "X";
+        wonGame[2][1] = "X";
+        board.setTicTacToeBoard(wonGame);
+        assertEquals(true, this.board.someoneWinner());
+    }
+
+    @Test
+    public void testY2VerticalWin() {
+        String[][] wonGame = new String[3][3];
+        wonGame[0][2] = "X";
+        wonGame[1][2] = "X";
+        wonGame[2][2] = "X";
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
