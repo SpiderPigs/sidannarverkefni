@@ -10,3 +10,7 @@ table td {
     border: 1px solid #CCC;
     font-size: 50px;
 }
+
+#game {
+    text-align: center;
+}

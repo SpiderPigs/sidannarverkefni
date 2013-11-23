@@ -60,8 +60,8 @@ public class TicTacToe {
                             + "<input type=\"hidden\" name=\"x1y2\" value=\"" + ticTacToeBoard[1][2] +"\"/>\n"
                             + "<input type=\"hidden\" name=\"x2y2\" value=\"" + ticTacToeBoard[2][2] +"\"/>\n"
                             + "</form>\n"
-                            + "<p id=\"textCurrent\">Current player is "+ttt.getCurrentPlayer()+"</p>\n"
                             + "<div id=\"game\">\n"
+                            + "<p id=\"textCurrent\">Current player is "+ttt.getCurrentPlayer()+"</p>\n"
                             + "<table>\n"
                             + "<tr>\n"
                             + "<td class=\"tile" + (!ticTacToeBoard[0][0].isEmpty() ? " checked" : "" ) + "\" id=\"x0y0\">"+ (ticTacToeBoard[0][0].isEmpty() ? " " : ticTacToeBoard[0][0]) + "</td>\n"
@@ -111,23 +111,6 @@ public class TicTacToe {
              public Object handle(Request request, Response response) {
                 return "Hello";
              }
-        });
-
-        get(new Route("/getCurrentPlayer") {
-            @Override
-            public Object handle(Request request, Response response) {
-                // return ttt.getCurrentPlayer();
-                return "";
-            }
-        });
-
-        post(new Route("/newGame") {
-            @Override
-            public Object handle(Request request, Response response) {
-                ttt.clearBoard();
-                response.redirect("/");
-                return "newGameSet";
-            }
         });
     }
 }

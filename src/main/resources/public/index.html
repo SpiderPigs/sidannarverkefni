@@ -29,8 +29,8 @@
               <input type="hidden" name="x1y2" class="pos" />
               <input type="hidden" name="x2y2" class="pos" />
           </form>
-          <p id="textCurrent">Current player is X</p>
           <div id="game">
+              <p id="textCurrent">Current player is X</p>
               <table>
                   <tr>
                       <td class="tile" id="x0y0"></td>
@@ -87,16 +87,7 @@
       // change all text inside tile class to "", value inside hidden input
       // and sends POST method to /newGame
       $("#game-body").on("click","#newGameBtn", function(e) {
-        e.preventDefault();
-
-        $(".tile").text("");
-        $("#current-player").val("X");
-        $(".pos").val("");
-
-        $.ajax({
-          url: $("#newGame").attr("action"),
-          type: "POST"
-          });
+          location.reload();
         });
 
       });
