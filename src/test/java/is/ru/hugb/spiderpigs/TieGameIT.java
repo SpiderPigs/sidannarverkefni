@@ -67,7 +67,7 @@ public class TieGameIT {
 		assertEquals("O", selenium.getTable("css=table.2.0"));
 
 		Thread.sleep(700);
-		assertTrue(selenium.isTextPresent("The game has tied!"));
+		assertEquals("The game has tied!", selenium.getText("css=h3"));
 	}
 
 	@After
