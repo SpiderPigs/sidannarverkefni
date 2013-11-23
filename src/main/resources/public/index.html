@@ -63,10 +63,11 @@
         $("#game-body").on("click",".tile", function(e) {
             e.preventDefault();
             var tile = $(e.target);
-            if(!tile.hasClass("checked")) {
-                tile.attr("class")
+            var table = $("table");
+            if(!tile.hasClass("checked") && !table.hasClass("game-ended")) {
                 var coords = tile.attr("id");
                 var currentPlayer = $("#current-player").val();
+                tile.addClass("checked");
                 console.log(currentPlayer);
                 $("input[name='" + coords + "']").val(currentPlayer);
                 var form = $("#game-form");
