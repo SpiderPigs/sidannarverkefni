@@ -80,10 +80,7 @@ public class TicTacToe {
                             + "\n"
                             + "</tr>\n"
                             + "</table>\n"
-                            + "</div>\n"
-                            + "<form method=\"post\" action=\"/newGame\" id=\"newGame\">\n"
-                            + "<button type=\"button\" id=\"newGameBtn\" class=\"btn btn-default\">New Game</button>\n"
-                            + "</form>\n";
+                            + "<button type=\"button\" id=\"newGameBtn\" class=\"btn btn-default\">New Game</button>\n";
 
                     return responseHtml;
                 }
