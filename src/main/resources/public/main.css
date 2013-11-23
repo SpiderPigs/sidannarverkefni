@@ -14,3 +14,11 @@ table td {
 #game {
     text-align: center;
 }
+
+.currX {
+	color: red;
+}
+
+.currO {
+	color: blue;
+}
