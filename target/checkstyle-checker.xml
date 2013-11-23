@@ -54,7 +54,7 @@
 
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
-    </module
+    </module>
 
     <module name="RegexpSingleline">
         <!-- \s matches whitespace character, $ matches end of line. -->
