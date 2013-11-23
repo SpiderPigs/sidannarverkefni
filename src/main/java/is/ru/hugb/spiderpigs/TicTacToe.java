@@ -88,5 +88,20 @@ public class TicTacToe {
                 return "Hello";
              }
         });
+
+        get(new Route("/getCurrentUser") {
+            @Override
+            public Object handle(Request request, Response response) {
+                return Board.getCurrentPplayer();
+            }
+        });
+
+        post(new Route("/newGame") {
+            @Override
+            public Object handle(Request request, Response response) {
+                Board.newGame();
+                return "newGameSet";
+            }
+        });
     }
 }
