@@ -14,11 +14,11 @@ import static junit.framework.Assert.*;
 public class TicTacToeTest {
 
 
-	private TicTacToe board;
+	private Board board;
 
 	@Before
 	public void setup() {
-		board = new TicTacToe();
+		board = new Board();
 	}
 
 	@Test
