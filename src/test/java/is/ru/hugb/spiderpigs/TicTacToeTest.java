@@ -108,4 +108,26 @@ public class TicTacToeTest {
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
+
+    @Test
+    public void testX0Y0toX2Y2DiagonalWin() {
+        String[][] wonGame = new String[3][3];
+        wonGame[0][0] = "X";
+        wonGame[1][1] = "X";
+        wonGame[2][2] = "X";
+        board.setTicTacToeBoard(wonGame);
+        assertEquals(true, this.board.someoneWinner());
+    }
+
+    @Test
+    public void testX2Y2toX0Y0DiagonalWin() {
+        String[][] wonGame = new String[3][3];
+        wonGame[2][2] = "X";
+        wonGame[1][1] = "X";
+        wonGame[0][0] = "X";
+        board.setTicTacToeBoard(wonGame);
+        assertEquals(true, this.board.someoneWinner());
+    }
+
+
 }
