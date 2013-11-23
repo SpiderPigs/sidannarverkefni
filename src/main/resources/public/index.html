@@ -13,7 +13,7 @@
   <body>
 
     <div class="container">
-      <h1>Welcome to Tic,Tac, Toe!</h1>
+      <h1>Welcome to Tic,Tac,Toe!</h1>
 
       <div id="game-body">
 
@@ -86,7 +86,8 @@
       // change all text inside tile class to "", value inside hidden input
       // and sends POST method to /newGame
       $("#game-body").on("click","#newGameBtn", function(e) {
-          location.reload();
+         window.location.href = "/";
+         //location.reload();
         });
 
       });
