@@ -81,17 +81,19 @@
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
         <module name="LineLength">
-			<property name="max" value="100"/>
+			<property name="max" value="120"/>
 		</module>
         <module name="MethodLength">
-			<property name="max" value="40"/>
+			<property name="max" value="60"/>
 		</module>
 
 
         <!-- Checks for whitespace                               -->
         <!-- See http://checkstyle.sf.net/config_whitespace.html -->
-        <module name="WhitespaceAfter"/>
-        <module name="WhitespaceAround"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="WhitespaceAround">
+			<property name="tokens" value="ASSIGN, LITERAL_IF, LITERAL_ELSE, LITERAL_RETURN, LITERAL_FOR, LITERAL_WHILE, PLUS, MINUS"/>
+
 
 
         <!-- Checks for blocks. You know, those {}'s         -->
