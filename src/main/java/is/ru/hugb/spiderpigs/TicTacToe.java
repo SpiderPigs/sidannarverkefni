@@ -5,17 +5,17 @@ import spark.*;
 import static spark.Spark.*;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Grimur
- * Date: 22.11.2013
- * Time: 12:11
- * To change this template use File | Settings | File Templates.
+ * TicTacToe
+ *
+ * This class contains the UI functionality between the game TicTacToe
+ *
+ * @author SpiderPigs
+ * @version 23/11/2013
  */
 public class TicTacToe {
 
     public static void main(String[] args) {
         final Board ttt = new Board();
-
 
         staticFileLocation("/public");
 

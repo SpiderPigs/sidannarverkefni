@@ -1,21 +1,20 @@
 package is.ru.hugb.spiderpigs;
-/**
- * Created with IntelliJ IDEA.
- * User: Grimur
- * Date: 22.11.2013
- * Time: 12:12
- * To change this template use File | Settings | File Templates.
- */
-
-
 
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.Assert.*;
 
+/**
+ * TicTacToeTest
+ *
+ * This is the class that tests the logic in the
+ * TicTacToe game.
+ *
+ * @author SpiderPigs
+ * @version 23/11/2013
+ */
 public class TicTacToeTest {
-
 
 	private Board board;
 
@@ -38,7 +37,6 @@ public class TicTacToeTest {
                 gameBoard[i][a] = "T";
             }
         }
-
         board.setTicTacToeBoard(gameBoard);
         assertEquals(true, this.board.isFull());
 	}
@@ -51,7 +49,6 @@ public class TicTacToeTest {
                 gameBoard[i][a] = "T";
             }
         }
-
         this.board.setTicTacToeBoard(gameBoard);
         this.board.clearBoard();
 
@@ -94,6 +91,7 @@ public class TicTacToeTest {
         wonGame[0][0] = "X";
         wonGame[1][0] = "X";
         wonGame[2][0] = "X";
+
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -104,6 +102,7 @@ public class TicTacToeTest {
         wonGame[0][1] = "X";
         wonGame[1][1] = "X";
         wonGame[2][1] = "X";
+
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -114,6 +113,7 @@ public class TicTacToeTest {
         wonGame[0][2] = "X";
         wonGame[1][2] = "X";
         wonGame[2][2] = "X";
+
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -124,6 +124,7 @@ public class TicTacToeTest {
         wonGame[0][0] = "X";
         wonGame[1][1] = "X";
         wonGame[2][2] = "X";
+
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -134,6 +135,7 @@ public class TicTacToeTest {
         wonGame[2][0] = "X";
         wonGame[1][1] = "X";
         wonGame[0][2] = "X";
+
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -144,6 +146,7 @@ public class TicTacToeTest {
         wonGame[0][0] = "X";
         wonGame[0][1] = "X";
         wonGame[0][2] = "X";
+
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -154,6 +157,7 @@ public class TicTacToeTest {
         wonGame[1][0] = "X";
         wonGame[1][1] = "X";
         wonGame[1][2] = "X";
+
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }
@@ -164,6 +168,7 @@ public class TicTacToeTest {
         wonGame[2][0] = "X";
         wonGame[2][1] = "X";
         wonGame[2][2] = "X";
+
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, board.someoneWinner());
     }
