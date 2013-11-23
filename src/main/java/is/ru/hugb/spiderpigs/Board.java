@@ -108,21 +108,19 @@ public class Board {
                 ticTacToeBoard[i][k] = "";
     }
 
-    public String changePlayer() {
+    public void changePlayer() {
         if(currentPlayer.isEmpty())
         {
             throw new IllegalArgumentException("The player variable can't be empty!");
         }
 
-        if(currentPlayer == "X")
+        if(currentPlayer.toLowerCase().equals("x"))
         {
             currentPlayer = "O";
-            return currentPlayer;
         }
-        else if(currentPlayer == "O")
+        else if(currentPlayer.toLowerCase().equals("o"))
         {
             currentPlayer = "X";
-            return currentPlayer;
         }
         else {
             throw new IllegalArgumentException("Current player must be either X or O");

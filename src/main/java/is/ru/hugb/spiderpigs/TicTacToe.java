@@ -15,7 +15,7 @@ public class TicTacToe {
 
     public static void main(String[] args) {
 
-        final Board ttt = new Board();
+
 
         staticFileLocation("/public");
 
@@ -39,11 +39,15 @@ public class TicTacToe {
                 ticTacToeBoard[1][2] = request.queryParams("x1y2");
                 ticTacToeBoard[2][2] = request.queryParams("x2y2");
 
-                ttt.setTicTacToeBoard(ticTacToeBoard);
-                ttt.setCurrentPlayer(request.queryParams("current-player"));
+                String cur = request.queryParams("current-player");
+
+                Board ttt = new Board(ticTacToeBoard);
+                ttt.setCurrentPlayer(cur);
+
 
                 if(!ttt.someoneWinner()) {
                     ttt.changePlayer();
+
 
                     String responseHtml = "<form method=\"post\" action=\"/play\" class=\"hidden\" id=\"game-form\">\n"
                             + "<input type=\"hidden\" name=\"current-player\" id=\"current-player\" value=\"" + ttt.getCurrentPlayer() +"\"/>\n"
@@ -101,7 +105,8 @@ public class TicTacToe {
         get(new Route("/getCurrentPlayer") {
             @Override
             public Object handle(Request request, Response response) {
-                return ttt.getCurrentPlayer();
+                // return ttt.getCurrentPlayer();
+                return "";
             }
         });
 

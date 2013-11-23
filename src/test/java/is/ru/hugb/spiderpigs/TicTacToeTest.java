@@ -59,14 +59,14 @@ public class TicTacToeTest {
     public void tryToChangePlayerToX() {
         String player = "O";
         board.setCurrentPlayer(player);
-        assertEquals("X", this.board.changePlayer());
+        assertEquals("X", this.board.getCurrentPlayer());
     }
 
     @Test
     public void tryToChangePlayerToO() {
         String player = "X";
         board.setCurrentPlayer(player);
-        assertEquals("O", this.board.changePlayer());
+        assertEquals("O", this.board.getCurrentPlayer());
     }
 
     @Test(expected = IllegalArgumentException.class)
