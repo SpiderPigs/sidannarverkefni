@@ -8,6 +8,7 @@ package is.ru.hugb.spiderpigs;
  * To change this template use File | Settings | File Templates.
  */
 public class Board {
+
     private String[][] ticTacToeBoard;
 
     public Board(){
@@ -21,11 +22,37 @@ public class Board {
         ticTacToeBoard = newBoard;
     }
 
+    public String[][] getTicTacToeBoard() {
+        return ticTacToeBoard;
+    }
+
+    public void setTicTacToeBoard(String[][] ticTacToeBoard) {
+        this.ticTacToeBoard = ticTacToeBoard;
+    }
+
     public boolean isEmpty() {
+        for(int i = 0; i < 3; i++)
+        {
+            for(int a = 0; a < 3; a++)
+            {
+                if(ticTacToeBoard[i][a] != null) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
     public boolean isFull() {
+        for(int i = 0; i < 3; i++)
+        {
+            for(int a = 0; a < 3; a++)
+            {
+                if(ticTacToeBoard[i][a] == null || ticTacToeBoard[i][a].isEmpty()) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 

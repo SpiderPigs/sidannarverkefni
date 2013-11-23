@@ -23,12 +23,21 @@ public class TicTacToeTest {
 
 	@Test
 	public void isBoardEmpty() {
-		//Board empty when created
-		// assertEquals(true, this.board.isEmpty());
+        board.setTicTacToeBoard(new String[3][3]);
+		assertEquals(true, board.isEmpty());
 	}
 	@Test
-	public void boardIsNotEmpty() {
-		// assertEquals(false, this.board.isFull());
+	public void boardIsFull() {
+        String[][] gameBoard = new String[3][3];
+
+        for(int i = 0; i < 3; i++) {
+            for(int a = 0; a < 3; a++) {
+                gameBoard[i][a] = "T";
+            }
+        }
+
+        board.setTicTacToeBoard(gameBoard);
+        assertEquals(true, this.board.isFull());
 	}
 
 	@Test
