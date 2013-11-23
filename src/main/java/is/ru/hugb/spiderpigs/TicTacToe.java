@@ -14,6 +14,9 @@ import static spark.Spark.*;
 public class TicTacToe {
 
     public static void main(String[] args) {
+
+        final Board ttt = new Board();
+
         staticFileLocation("/public");
 
         setPort(Integer.valueOf(System.getenv("PORT")));
@@ -36,6 +39,9 @@ public class TicTacToe {
                 ticTacToeBoard[2][2] = request.queryParams("x2y2");
 
                 String currentPlayer = request.queryParams("current-player");
+
+                ttt.setTicTacToeBoard(ticTacToeBoard);
+                ttt.setCurrentPlayer(currentPlayer);
 
 
                 String responseHtml = "<form method=\"post\" action=\"/play\" class=\"hidden\" id=\"game-form\">\n"
@@ -89,17 +95,17 @@ public class TicTacToe {
              }
         });
 
-        get(new Route("/getCurrentUser") {
+        get(new Route("/getCurrentPlayer") {
             @Override
             public Object handle(Request request, Response response) {
-                return Board.getCurrentPlayer();
+                return ttt.getCurrentPlayer();
             }
         });
 
         post(new Route("/newGame") {
             @Override
             public Object handle(Request request, Response response) {
-                Board.newGame();
+                ttt.newGame();
                 return "newGameSet";
             }
         });
