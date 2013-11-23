@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# make sure we are using the production
+git remote rm heroku
+git remote add heroku git@heroku.com:spiderpigs.git
+
+# use heroku rollback mecanism
+heroku rollback
