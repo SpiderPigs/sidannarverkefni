@@ -28,6 +28,7 @@ public class TicTacToe {
                 // We then get the board from the request and put it
                 // into the array.
                 String[][] ticTacToeBoard = new String[3][3];
+
                 ticTacToeBoard[0][0] = request.queryParams("x0y0");
                 ticTacToeBoard[1][0] = request.queryParams("x1y0");
                 ticTacToeBoard[2][0] = request.queryParams("x2y0");
@@ -42,6 +43,8 @@ public class TicTacToe {
 
                 ttt.setTicTacToeBoard(ticTacToeBoard);
                 ttt.setCurrentPlayer(currentPlayer);
+                currentPlayer = ttt.changePlayer();
+                ticTacToeBoard = ttt.getTicTacToeBoard();
 
 
                 String responseHtml = "<form method=\"post\" action=\"/play\" class=\"hidden\" id=\"game-form\">\n"
