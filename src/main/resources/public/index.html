@@ -68,7 +68,6 @@
             if(!tile.hasClass("checked")) {
                 tile.attr("class")
                 var coords = tile.attr("id");
-                console.log(coords);
                 var currentPlayer = $("#current-player").val();
                 console.log(currentPlayer);
                 $("input[name='" + coords + "']").val(currentPlayer);
@@ -79,15 +78,6 @@
                    data: form.serialize(),
                     success: function(response) {
                         $("#game-body").html(response);
-                    }
-                });
-
-                $.ajax({ // Fá currentuser og setja það í current-ölayer
-                   url: form.attr("/getCurrentPlayer"),
-                   type: "POST",
-                    success: function(response) {
-                        //$("#current-player").val(response);
-                        $("#textCurrent").html("Current player is"+$("#current-player").val());
                     }
                 });
             }
