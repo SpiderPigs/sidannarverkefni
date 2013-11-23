@@ -40,10 +40,20 @@ public class TicTacToeTest {
         assertEquals(true, this.board.isFull());
 	}
 
-	@Test
-	public void gameSomeoneWinner() {
-		assertEquals(false, this.board.someoneWinner());
-	}
+    @Test
+    public void boardWasCleared() {
+        String[][] gameBoard = new String[3][3];
+        for(int i = 0; i < 3; i++) {
+            for(int a = 0; a < 3; a++) {
+                gameBoard[i][a] = "T";
+            }
+        }
+
+        this.board.setTicTacToeBoard(gameBoard);
+        this.board.clearBoard();
+
+        assertEquals(true, this.board.isEmpty());
+    }
 
     @Test
     public void tryToChangePlayerToX() {
@@ -67,5 +77,35 @@ public class TicTacToeTest {
     public void tryToChangePlayerToIllegalValue() {
         String player = "K";
         this.board.changePlayer(player);
+    }
+
+    @Test
+    public void testY0HorizontalWin() {
+        String[][] wonGame = new String[3][3];
+        wonGame[0][0] = "X";
+        wonGame[0][0] = "X";
+        wonGame[0][0] = "X";
+        board.setTicTacToeBoard(wonGame);
+        assertEquals(true, this.board.someoneWinner());
+    }
+
+    @Test
+    public void testY1HorizontalWin() {
+        String[][] wonGame = new String[3][3];
+        wonGame[1][0] = "X";
+        wonGame[1][0] = "X";
+        wonGame[1][0] = "X";
+        board.setTicTacToeBoard(wonGame);
+        assertEquals(true, this.board.someoneWinner());
+    }
+
+    @Test
+    public void testY2HorizontalWin() {
+        String[][] wonGame = new String[3][3];
+        wonGame[2][0] = "X";
+        wonGame[2][0] = "X";
+        wonGame[2][0] = "X";
+        board.setTicTacToeBoard(wonGame);
+        assertEquals(true, this.board.someoneWinner());
     }
 }
