@@ -87,6 +87,11 @@ public class TicTacToe {
 
                     return responseHtml;
                 }
+                else if(ttt.isFull())
+                {
+
+                    return "Full";
+                }
                 else {
                     return "lol";
                 }
@@ -119,6 +124,7 @@ public class TicTacToe {
         post(new Route("/newGame") {
             @Override
             public Object handle(Request request, Response response) {
+                ttt.clearBoard();
                 response.redirect("/");
                 return "newGameSet";
             }
