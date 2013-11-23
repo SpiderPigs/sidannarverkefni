@@ -36,14 +36,7 @@ public class TicTacToe {
                 ticTacToeBoard[2][2] = request.queryParams("x2y2");
 
                 String currentPlayer = request.queryParams("current-player");
-                if(currentPlayer.equals("X"))
-                {
-                    currentPlayer = "O";
-                }
-                else if(currentPlayer.equals("O"))
-                {
-                    currentPlayer = "X";
-                }
+
 
                 String responseHtml = "<form method=\"post\" action=\"/play\" class=\"hidden\" id=\"game-form\">\n"
                         + "<input type=\"hidden\" name=\"current-player\" id=\"current-player\" value=\"" + currentPlayer +"\"/>\n"

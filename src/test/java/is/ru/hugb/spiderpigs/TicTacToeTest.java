@@ -44,4 +44,28 @@ public class TicTacToeTest {
 	public void gameSomeoneWinner() {
 		assertEquals(false, this.board.someoneWinner());
 	}
+
+    @Test
+    public void tryToChangePlayerToX() {
+        String player = "O";
+        assertEquals("X", this.board.changePlayer(player));
+    }
+
+    @Test
+    public void tryToChangePlayerToO() {
+        String player = "X";
+        assertEquals("O", this.board.changePlayer(player));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void tryToChangePlayerToNull() {
+        String player = "";
+        this.board.changePlayer(player);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void tryToChangePlayerToIllegalValue() {
+        String player = "K";
+        this.board.changePlayer(player);
+    }
 }

@@ -86,4 +86,23 @@ public class Board {
 
         return false;
     }
+
+    public String changePlayer(String currentPlayer) {
+        if(currentPlayer.isEmpty())
+        {
+            throw new IllegalArgumentException("The player variable can't be empty!");
+        }
+
+        if(currentPlayer.toLowerCase().equals("x"))
+        {
+            return currentPlayer = "O";
+        }
+        else if(currentPlayer.toLowerCase().equals("o"))
+        {
+            return currentPlayer = "X";
+        }
+        else {
+            throw new IllegalArgumentException("Current player must be either X or O");
+        }
+    }
 }
