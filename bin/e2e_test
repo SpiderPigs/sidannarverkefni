@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Run tests
+mvn test-compile failsafe:integration-test
+
+RESULT=$?
+[ $RESULT -ne 0 ] && exit 1
+exit 0
