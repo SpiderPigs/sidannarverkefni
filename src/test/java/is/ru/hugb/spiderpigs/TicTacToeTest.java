@@ -7,7 +7,10 @@ package is.ru.hugb.spiderpigs;
  * To change this template use File | Settings | File Templates.
  */
 
-import org.junit.*;
+
+
+import org.junit.Before;
+import org.junit.Test;
 
 import static junit.framework.Assert.*;
 
@@ -180,6 +183,7 @@ public class TicTacToeTest {
 
         board.setTicTacToeBoard(tieGame);
         assertEquals(false, board.someoneWinner());
+        assertEquals(true, board.isFull());
     }
 
 
