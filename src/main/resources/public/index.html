@@ -33,7 +33,7 @@
           <div id="game">
               <table>
                   <tr>
-                      <td class="tile" id="x0y0">dd</td>
+                      <td class="tile" id="x0y0"></td>
                       <td class="tile" id="x1y0"></td>
                       <td class="tile" id="x2y0"></td>
                   </tr>
@@ -83,11 +83,11 @@
                 });
 
                 $.ajax({ // Fá currentuser og setja það í current-ölayer
-                   url: form.attr("/getCurrentUser"),
+                   url: form.attr("/getCurrentPlayer"),
                    type: "POST",
                     success: function(response) {
-                        $("#current-player").val(response);
-                        $("#textCurrent").text("Current player is"+$("#current-player").val());
+                        //$("#current-player").val(response);
+                        $("#textCurrent").html("Current player is"+$("#current-player").val());
                     }
                 });
             }
