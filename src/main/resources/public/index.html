@@ -51,7 +51,7 @@
               </table>
           </div>
           <form method="post" action="/newGame" id="newGame">
-            <button type="button" id="newGameBtn">New Game</button> 
+            <button type="button" id="newGameBtn" class="btn btn-default">New Game</button>
           </form>
         </div>
     </div>
@@ -93,9 +93,9 @@
             }
         });
 
-      // When we click on "New Game" button we run this script which 
+      // When we click on "New Game" button we run this script which
       // change all text inside tile class to "", value inside hidden input
-      // and sends POST method to /newGame 
+      // and sends POST method to /newGame
       $("#game-body").on("click","#newGameBtn", function(e) {
         e.preventDefault();
 
