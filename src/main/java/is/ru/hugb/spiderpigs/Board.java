@@ -22,6 +22,11 @@ public class Board {
         ticTacToeBoard = newBoard;
     }
 
+    public String getCurrentPplayer()
+    {
+        return currentPlayer;
+    }
+
     public String[][] getTicTacToeBoard() {
         return ticTacToeBoard;
     }
