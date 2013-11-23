@@ -1,4 +1,4 @@
-package com.example.tests;
+package is.ru.hugb.spiderpigs;
 
 import com.thoughtworks.selenium.Selenium;
 import org.openqa.selenium.firefox.FirefoxDriver;
