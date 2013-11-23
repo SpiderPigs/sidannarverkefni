@@ -76,28 +76,39 @@ public class Board {
         // Horizontal
         for(int i = 0; i < 3; i++)
         {
-            if( (ticTacToeBoard[i][0] == ticTacToeBoard[i][1]) && (ticTacToeBoard[i][1] == ticTacToeBoard[i][2]) && (ticTacToeBoard[i][0] != null && !ticTacToeBoard[i][0].isEmpty()) )
-            {
-                return true;
+            if(ticTacToeBoard[i][0] != null && !ticTacToeBoard[i][0].isEmpty()) {
+                if( (ticTacToeBoard[i][0].equals(ticTacToeBoard[i][1])) && (ticTacToeBoard[i][0].equals(ticTacToeBoard[i][2])) )
+                {
+                    return true;
+                }
             }
         }
 
         // Vertical
         for(int i = 0; i < 3; i++)
         {
-            if( (ticTacToeBoard[0][i] == ticTacToeBoard[1][i]) && (ticTacToeBoard[1][i] == ticTacToeBoard[2][i]) && (ticTacToeBoard[0][i] != null && !ticTacToeBoard[0][i].isEmpty()) )
+            if(ticTacToeBoard[0][i] != null && !ticTacToeBoard[0][i].isEmpty())
             {
-                return true;
+                if( (ticTacToeBoard[0][i].equals(ticTacToeBoard[1][i])) && (ticTacToeBoard[0][i].equals(ticTacToeBoard[2][i])) && (ticTacToeBoard[0][i] != null && !ticTacToeBoard[0][i].isEmpty()) )
+                {
+                    return true;
+                }
             }
         }
 
-        // Diagonal - Down
-        if( (ticTacToeBoard[0][0] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][2]) && (ticTacToeBoard[0][0] != null && !ticTacToeBoard[0][0].isEmpty()) )
-            return true;
+        // Diagonal - Left down to right
+        if(ticTacToeBoard[0][0] != null && !ticTacToeBoard[0][0].isEmpty())
+        {
+            if( (ticTacToeBoard[0][0].equals(ticTacToeBoard[1][1])) && (ticTacToeBoard[0][0].equals(ticTacToeBoard[2][2])) && (ticTacToeBoard[0][0] != null && !ticTacToeBoard[0][0].isEmpty()) )
+                return true;
+        }
 
-        // Diagonal - Up
-        if( (ticTacToeBoard[0][2] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][0]) && (ticTacToeBoard[0][2] != null && !ticTacToeBoard[0][2].isEmpty()) )
-            return true;
+        // Diagonal - Right up to left
+        if(ticTacToeBoard[0][2] != null && !ticTacToeBoard[0][2].isEmpty())
+        {
+            if( (ticTacToeBoard[0][2].equals(ticTacToeBoard[1][1])) && (ticTacToeBoard[0][2].equals(ticTacToeBoard[2][0])) && (ticTacToeBoard[0][2] != null && !ticTacToeBoard[0][2].isEmpty()) )
+                return true;
+        }
 
         return false;
     }
