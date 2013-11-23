@@ -60,6 +60,7 @@ public class TicTacToe {
                             + "<input type=\"hidden\" name=\"x1y2\" value=\"" + ticTacToeBoard[1][2] +"\"/>\n"
                             + "<input type=\"hidden\" name=\"x2y2\" value=\"" + ticTacToeBoard[2][2] +"\"/>\n"
                             + "</form>\n"
+                            + "<p id=\"textCurrent\">Current player is "+ttt.getCurrentPlayer()+"</p>\n"
                             + "<div id=\"game\">\n"
                             + "<table>\n"
                             + "<tr>\n"
@@ -79,7 +80,10 @@ public class TicTacToe {
                             + "\n"
                             + "</tr>\n"
                             + "</table>\n"
-                            + "</div>";
+                            + "</div>\n"
+                            + "<form method=\"post\" action=\"/newGame\" id=\"newGame\">\n"
+                            + "<button type=\"button\" id=\"newGameBtn\" class=\"btn btn-default\">New Game</button>\n"
+                            + "</form>\n";
 
                     return responseHtml;
                 }
