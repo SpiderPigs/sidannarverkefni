@@ -117,8 +117,7 @@
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>2.11</version>
 		  <configuration>
-			<configLocation>checkstyle.xml</configLocation>
-			<packageNamesLocation>sidannarverkefni/Code Inspection/checkstyle-checker.xml</packageNamesLocation>
+			<configLocation>config/checkstyle-checker.xml</configLocation>
           </configuration>
           <reportSets>
             <reportSet>
