@@ -11,6 +11,14 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
+/**
+ * WinningGameIT
+ *
+ * Try a winning game and see the results
+ *
+ * @author SpiderPigs
+ * @version 23/11/2013
+ */
 public class WinningGameIT {
 	private Selenium selenium;
 

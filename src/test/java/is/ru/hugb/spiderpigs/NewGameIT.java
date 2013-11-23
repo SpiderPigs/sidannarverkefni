@@ -11,6 +11,15 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
+/**
+ * NewGameIT
+ *
+ * Selenium tests that try to create a new game and checks
+ * if the board clears.
+ *
+ * @author SpiderPigs
+ * @version 23/11/2013
+ */
 public class NewGameIT {
 	private Selenium selenium;
 

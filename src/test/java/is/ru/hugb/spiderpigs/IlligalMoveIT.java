@@ -11,6 +11,14 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
+/**
+ * IllegalmoveIT
+ *
+ * Test that triest to perform an illeagal move.
+ *
+ * @author SpiderPigs
+ * @version 23/11/2013
+ */
 public class IlligalMoveIT {
 	private Selenium selenium;
 

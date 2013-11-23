@@ -11,6 +11,16 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
+/**
+ * TieGameIT
+ *
+ * Try to tie a game and see if we
+ * get the correct results
+ *
+ * @author SpiderPigs
+ * @version 23/11/2013
+ */
+
 public class TieGameIT {
 	private Selenium selenium;
 
