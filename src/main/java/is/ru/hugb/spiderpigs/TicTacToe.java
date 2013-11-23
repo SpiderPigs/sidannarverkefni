@@ -38,46 +38,48 @@ public class TicTacToe {
                 ticTacToeBoard[1][2] = request.queryParams("x1y2");
                 ticTacToeBoard[2][2] = request.queryParams("x2y2");
 
-                String currentPlayer = request.queryParams("current-player");
-
                 ttt.setTicTacToeBoard(ticTacToeBoard);
-                ttt.setCurrentPlayer(currentPlayer);
+                ttt.setCurrentPlayer(request.queryParams("current-player"));
 
+                if(!ttt.someoneWinner()) {
+                    ttt.changePlayer();
 
-                String responseHtml = "<form method=\"post\" action=\"/play\" class=\"hidden\" id=\"game-form\">\n"
-                        + "<input type=\"hidden\" name=\"current-player\" id=\"current-player\" value=\"" + currentPlayer +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x0y0\" value=\"" + ticTacToeBoard[0][0] +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x1y0\" value=\"" + ticTacToeBoard[1][0] +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x2y0\" value=\"" + ticTacToeBoard[2][0] +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x0y1\" value=\"" + ticTacToeBoard[0][1] +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x1y1\" value=\"" + ticTacToeBoard[1][1] +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x2y1\" value=\"" + ticTacToeBoard[2][1] +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x0y2\" value=\"" + ticTacToeBoard[0][2] +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x1y2\" value=\"" + ticTacToeBoard[1][2] +"\"/>\n"
-                        + "<input type=\"hidden\" name=\"x2y2\" value=\"" + ticTacToeBoard[2][2] +"\"/>\n"
-                        + "</form>\n"
-                        + "<div id=\"game\">\n"
-                        + "<table>\n"
-                        + "<tr>\n"
-                        + "<td class=\"tile" + (!ticTacToeBoard[0][0].isEmpty() ? " checked" : "" ) + " id=\"x0y0\">"+ (ticTacToeBoard[0][0].isEmpty() ? " " : ticTacToeBoard[0][0]) + "</td>\n"
-                        + "<td class=\"tile"  + (!ticTacToeBoard[1][0].isEmpty() ? " checked" : "" ) +  "\" id=\"x1y0\">"+ (ticTacToeBoard[1][0].isEmpty() ? " " : ticTacToeBoard[1][0]) + "</td>\n"
-                        + "<td class=\"tile"  + (!ticTacToeBoard[2][0].isEmpty() ? " checked" : "" ) +  " \" id=\"x2y0\">"+ (ticTacToeBoard[2][0].isEmpty() ? " " : ticTacToeBoard[2][0]) + "</td>\n"
-                        + "</tr>\n"
-                        + "<tr>\n"
-                        + "<td class=\"tile"  + (!ticTacToeBoard[0][1].isEmpty() ? " checked" : "" ) +  "\" id=\"x0y1\">"+ (ticTacToeBoard[0][1].isEmpty() ? " " : ticTacToeBoard[0][1]) + "</td>\n"
-                        + "<td class=\"tile"  + (!ticTacToeBoard[1][1].isEmpty() ? " checked" : "" ) +  "\" id=\"x1y1\">"+ (ticTacToeBoard[1][1].isEmpty() ? " " : ticTacToeBoard[1][1]) + "</td>\n"
-                        + "<td class=\"tile"  + (!ticTacToeBoard[2][1].isEmpty() ? " checked" : "" ) +  "\" id=\"x2y1\">"+ (ticTacToeBoard[2][1].isEmpty() ? " " : ticTacToeBoard[2][1]) + "</td>\n"
-                        + "</tr>\n"
-                        + "<tr>\n"
-                        + "<td class=\"tile"  + (!ticTacToeBoard[0][2].isEmpty() ? " checked" : "" ) + "\" id=\"x0y2\">"+ (ticTacToeBoard[0][2].isEmpty() ? " " : ticTacToeBoard[0][2]) + "</td>\n"
-                        + "<td class=\"tile"  + (!ticTacToeBoard[1][2].isEmpty() ? " checked" : "" ) +  "\" id=\"x1y2\">"+ (ticTacToeBoard[1][2].isEmpty() ? " " : ticTacToeBoard[1][2]) + "</td>\n"
-                        + "<td class=\"tile"  + (!ticTacToeBoard[2][2].isEmpty() ? " checked" : "" ) +  "\" id=\"x2y2\">"+ (ticTacToeBoard[2][2].isEmpty() ? " " : ticTacToeBoard[2][2]) + "</td>\n"
-                        + "\n"
-                        + "</tr>\n"
-                        + "</table>\n"
-                        + "</div>";
+                    String responseHtml = "<form method=\"post\" action=\"/play\" class=\"hidden\" id=\"game-form\">\n"
+                            + "<input type=\"hidden\" name=\"current-player\" id=\"current-player\" value=\"" + ttt.getCurrentPlayer() +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x0y0\" value=\"" + ticTacToeBoard[0][0] +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x1y0\" value=\"" + ticTacToeBoard[1][0] +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x2y0\" value=\"" + ticTacToeBoard[2][0] +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x0y1\" value=\"" + ticTacToeBoard[0][1] +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x1y1\" value=\"" + ticTacToeBoard[1][1] +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x2y1\" value=\"" + ticTacToeBoard[2][1] +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x0y2\" value=\"" + ticTacToeBoard[0][2] +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x1y2\" value=\"" + ticTacToeBoard[1][2] +"\"/>\n"
+                            + "<input type=\"hidden\" name=\"x2y2\" value=\"" + ticTacToeBoard[2][2] +"\"/>\n"
+                            + "</form>\n"
+                            + "<div id=\"game\">\n"
+                            + "<table>\n"
+                            + "<tr>\n"
+                            + "<td class=\"tile" + (!ticTacToeBoard[0][0].isEmpty() ? " checked" : "" ) + " id=\"x0y0\">"+ (ticTacToeBoard[0][0].isEmpty() ? " " : ticTacToeBoard[0][0]) + "</td>\n"
+                            + "<td class=\"tile"  + (!ticTacToeBoard[1][0].isEmpty() ? " checked" : "" ) +  "\" id=\"x1y0\">"+ (ticTacToeBoard[1][0].isEmpty() ? " " : ticTacToeBoard[1][0]) + "</td>\n"
+                            + "<td class=\"tile"  + (!ticTacToeBoard[2][0].isEmpty() ? " checked" : "" ) +  " \" id=\"x2y0\">"+ (ticTacToeBoard[2][0].isEmpty() ? " " : ticTacToeBoard[2][0]) + "</td>\n"
+                            + "</tr>\n"
+                            + "<tr>\n"
+                            + "<td class=\"tile"  + (!ticTacToeBoard[0][1].isEmpty() ? " checked" : "" ) +  "\" id=\"x0y1\">"+ (ticTacToeBoard[0][1].isEmpty() ? " " : ticTacToeBoard[0][1]) + "</td>\n"
+                            + "<td class=\"tile"  + (!ticTacToeBoard[1][1].isEmpty() ? " checked" : "" ) +  "\" id=\"x1y1\">"+ (ticTacToeBoard[1][1].isEmpty() ? " " : ticTacToeBoard[1][1]) + "</td>\n"
+                            + "<td class=\"tile"  + (!ticTacToeBoard[2][1].isEmpty() ? " checked" : "" ) +  "\" id=\"x2y1\">"+ (ticTacToeBoard[2][1].isEmpty() ? " " : ticTacToeBoard[2][1]) + "</td>\n"
+                            + "</tr>\n"
+                            + "<tr>\n"
+                            + "<td class=\"tile"  + (!ticTacToeBoard[0][2].isEmpty() ? " checked" : "" ) + "\" id=\"x0y2\">"+ (ticTacToeBoard[0][2].isEmpty() ? " " : ticTacToeBoard[0][2]) + "</td>\n"
+                            + "<td class=\"tile"  + (!ticTacToeBoard[1][2].isEmpty() ? " checked" : "" ) +  "\" id=\"x1y2\">"+ (ticTacToeBoard[1][2].isEmpty() ? " " : ticTacToeBoard[1][2]) + "</td>\n"
+                            + "<td class=\"tile"  + (!ticTacToeBoard[2][2].isEmpty() ? " checked" : "" ) +  "\" id=\"x2y2\">"+ (ticTacToeBoard[2][2].isEmpty() ? " " : ticTacToeBoard[2][2]) + "</td>\n"
+                            + "\n"
+                            + "</tr>\n"
+                            + "</table>\n"
+                            + "</div>";
 
-                return responseHtml;
+                    return responseHtml;
+                }
+                return "lol";
             }
         });
 
