@@ -92,7 +92,7 @@ public class TicTacToe {
         get(new Route("/getCurrentUser") {
             @Override
             public Object handle(Request request, Response response) {
-                return Board.getCurrentPplayer();
+                return Board.getCurrentPlayer();
             }
         });
 
