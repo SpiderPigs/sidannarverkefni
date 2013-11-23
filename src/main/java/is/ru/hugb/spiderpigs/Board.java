@@ -11,24 +11,52 @@ public class Board {
 
     private String[][] ticTacToeBoard;
 
+    private String currentPlayer;
+
+    private int gameSize = 3;
+
     public Board(){
         ticTacToeBoard = new String[3][3];
         for(int i = 0; i < 3; i++)
             for(int k = 0; k < 3; k++)
                 ticTacToeBoard[i][k] = "";
+
+        currentPlayer = "X";
+
     }
 
     public Board(String[][] newBoard) {
         ticTacToeBoard = newBoard;
     }
 
-    public String getCurrentPplayer()
+    public String getCurrentPlayer()
     {
         return currentPlayer;
     }
 
+    public void setCurrentPlayer(String currPlayer)
+    {
+        currentPlayer = currPlayer;
+    }
+
     public String[][] getTicTacToeBoard() {
         return ticTacToeBoard;
+    }
+
+    public void newGame()
+    {
+        
+        currentPlayer = "X";
+
+        for(int i = 0; i < gameSize; i++)
+        {   
+            for(int k = 0; k < gameSize; k++)
+            {
+                ticTacToeBoard[i][k] = null;
+            }
+        }
+
+        //countMoves = 0;
     }
 
     public void setTicTacToeBoard(String[][] ticTacToeBoard) {
@@ -95,19 +123,21 @@ public class Board {
                 ticTacToeBoard[i][k] = "";
     }
 
-    public String changePlayer(String currentPlayer) {
+    public String changePlayer() {
         if(currentPlayer.isEmpty())
         {
             throw new IllegalArgumentException("The player variable can't be empty!");
         }
 
-        if(currentPlayer.toLowerCase().equals("x"))
+        if(currentPlayer == "X")
         {
-            return currentPlayer = "O";
+            currentPlayer = "O";
+            return currentPlayer;
         }
-        else if(currentPlayer.toLowerCase().equals("o"))
+        else if(currentPlayer == "O")
         {
-            return currentPlayer = "X";
+            currentPlayer = "X";
+            return currentPlayer;
         }
         else {
             throw new IllegalArgumentException("Current player must be either X or O");
