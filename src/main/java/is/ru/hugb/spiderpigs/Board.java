@@ -19,7 +19,7 @@ public class Board {
         ticTacToeBoard = new String[3][3];
         for(int i = 0; i < 3; i++)
             for(int k = 0; k < 3; k++)
-                ticTacToeBoard[i][k] = "";
+                ticTacToeBoard[i][k] = null;
 
         currentPlayer = "X";
 
@@ -91,7 +91,7 @@ public class Board {
         // Vertical
         for(int i = 0; i < 3; i++)
         {
-            if( (ticTacToeBoard[i][0] == ticTacToeBoard[i][1]) && (ticTacToeBoard[i][1] == ticTacToeBoard[i][2]) && (ticTacToeBoard[i][0] != "0") )
+            if( (ticTacToeBoard[i][0] == ticTacToeBoard[i][1]) && (ticTacToeBoard[i][1] == ticTacToeBoard[i][2]) && (ticTacToeBoard[i][0] != null) )
             {
                 return true;
             }
@@ -100,18 +100,18 @@ public class Board {
         // Horizontal
         for(int i = 0; i < 3; i++)
         {
-            if( (ticTacToeBoard[0][i] == ticTacToeBoard[1][i]) && (ticTacToeBoard[1][i] == ticTacToeBoard[2][i]) && (ticTacToeBoard[0][i] != "0") )
+            if( (ticTacToeBoard[0][i] == ticTacToeBoard[1][i]) && (ticTacToeBoard[1][i] == ticTacToeBoard[2][i]) && (ticTacToeBoard[0][i] != null) )
             {
                 return true;
             }
         }
 
         // Diagonal - Down
-        if( (ticTacToeBoard[0][0] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][2]) && (ticTacToeBoard[0][0] != "0") )
+        if( (ticTacToeBoard[0][0] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][2]) && (ticTacToeBoard[0][0] != null) )
             return true;
 
         // Diagonal - Up
-        if( (ticTacToeBoard[0][2] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][0]) && (ticTacToeBoard[0][2] != "0") )
+        if( (ticTacToeBoard[0][2] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][0]) && (ticTacToeBoard[0][2] != null) )
             return true;
 
         return false;
@@ -120,7 +120,7 @@ public class Board {
     public void clearBoard() {
         for(int i = 0; i < 3; i++)
             for(int k = 0; k < 3; k++)
-                ticTacToeBoard[i][k] = "";
+                ticTacToeBoard[i][k] = null;
     }
 
     public String changePlayer() {
