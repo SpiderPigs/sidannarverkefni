@@ -15,7 +15,7 @@ public class Board {
         ticTacToeBoard = new String[3][3];
         for(int i = 0; i < 3; i++)
             for(int k = 0; k < 3; k++)
-                ticTacToeBoard[i][k] = "0";
+                ticTacToeBoard[i][k] = "";
     }
 
     public Board(String[][] newBoard) {
@@ -32,14 +32,11 @@ public class Board {
 
     public boolean isEmpty() {
         for(int i = 0; i < 3; i++)
-        {
-            for(int a = 0; a < 3; a++)
-            {
-                if(ticTacToeBoard[i][a] != null) {
+            for(int k = 0; k < 3; k++)
+                if(ticTacToeBoard[i][k] != null && !ticTacToeBoard[i][k].isEmpty())
                     return false;
-                }
-            }
-        }
+
+
         return true;
     }
 
@@ -85,6 +82,12 @@ public class Board {
             return true;
 
         return false;
+    }
+
+    public void clearBoard() {
+        for(int i = 0; i < 3; i++)
+            for(int k = 0; k < 3; k++)
+                ticTacToeBoard[i][k] = "";
     }
 
     public String changePlayer(String currentPlayer) {
