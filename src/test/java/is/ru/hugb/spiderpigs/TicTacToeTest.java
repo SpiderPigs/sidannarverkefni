@@ -59,6 +59,7 @@ public class TicTacToeTest {
     public void tryToChangePlayerToX() {
         String player = "O";
         board.setCurrentPlayer(player);
+        board.changePlayer();
         assertEquals("X", this.board.getCurrentPlayer());
     }
 
@@ -66,6 +67,7 @@ public class TicTacToeTest {
     public void tryToChangePlayerToO() {
         String player = "X";
         board.setCurrentPlayer(player);
+        board.changePlayer();
         assertEquals("O", this.board.getCurrentPlayer());
     }
 
@@ -161,6 +163,23 @@ public class TicTacToeTest {
         wonGame[2][2] = "X";
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, board.someoneWinner());
+    }
+
+    @Test
+    public void testTie(){
+        String[][] tieGame = new String[3][3];
+        tieGame[0][0] = "X";
+        tieGame[1][0] = "O";
+        tieGame[2][0] = "X";
+        tieGame[0][1] = "O";
+        tieGame[1][1] = "O";
+        tieGame[2][1] = "X";
+        tieGame[0][2] = "X";
+        tieGame[1][2] = "X";
+        tieGame[2][2] = "O";
+
+        board.setTicTacToeBoard(tieGame);
+        assertEquals(false, board.someoneWinner());
     }
 
 
