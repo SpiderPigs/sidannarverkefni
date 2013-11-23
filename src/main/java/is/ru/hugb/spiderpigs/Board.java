@@ -19,7 +19,7 @@ public class Board {
         ticTacToeBoard = new String[3][3];
         for(int i = 0; i < 3; i++)
             for(int k = 0; k < 3; k++)
-                ticTacToeBoard[i][k] = null;
+                ticTacToeBoard[i][k] = "";
 
         currentPlayer = "X";
 
@@ -42,23 +42,7 @@ public class Board {
     public String[][] getTicTacToeBoard() {
         return ticTacToeBoard;
     }
-
-    public void newGame()
-    {
-        
-        currentPlayer = "X";
-
-        for(int i = 0; i < gameSize; i++)
-        {   
-            for(int k = 0; k < gameSize; k++)
-            {
-                ticTacToeBoard[i][k] = null;
-            }
-        }
-
-        //countMoves = 0;
-    }
-
+    
     public void setTicTacToeBoard(String[][] ticTacToeBoard) {
         this.ticTacToeBoard = ticTacToeBoard;
     }
@@ -66,7 +50,7 @@ public class Board {
     public boolean isEmpty() {
         for(int i = 0; i < 3; i++)
             for(int k = 0; k < 3; k++)
-                if(ticTacToeBoard[i][k] != null && !ticTacToeBoard[i][k].isEmpty())
+                if(!ticTacToeBoard[i][k].isEmpty())
                     return false;
 
 
@@ -78,7 +62,7 @@ public class Board {
         {
             for(int a = 0; a < 3; a++)
             {
-                if(ticTacToeBoard[i][a] == null || ticTacToeBoard[i][a].isEmpty()) {
+                if(ticTacToeBoard[i][a].isEmpty()) {
                     return false;
                 }
             }
@@ -91,7 +75,7 @@ public class Board {
         // Vertical
         for(int i = 0; i < 3; i++)
         {
-            if( (ticTacToeBoard[i][0] == ticTacToeBoard[i][1]) && (ticTacToeBoard[i][1] == ticTacToeBoard[i][2]) && (ticTacToeBoard[i][0] != null) )
+            if( (ticTacToeBoard[i][0] == ticTacToeBoard[i][1]) && (ticTacToeBoard[i][1] == ticTacToeBoard[i][2]) && !ticTacToeBoard[i][0].isEmpty() )
             {
                 return true;
             }
@@ -100,18 +84,18 @@ public class Board {
         // Horizontal
         for(int i = 0; i < 3; i++)
         {
-            if( (ticTacToeBoard[0][i] == ticTacToeBoard[1][i]) && (ticTacToeBoard[1][i] == ticTacToeBoard[2][i]) && (ticTacToeBoard[0][i] != null) )
+            if( (ticTacToeBoard[0][i] == ticTacToeBoard[1][i]) && (ticTacToeBoard[1][i] == ticTacToeBoard[2][i]) && !ticTacToeBoard[i][0].isEmpty()  )
             {
                 return true;
             }
         }
 
         // Diagonal - Down
-        if( (ticTacToeBoard[0][0] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][2]) && (ticTacToeBoard[0][0] != null) )
+        if( (ticTacToeBoard[0][0] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][2]) && !ticTacToeBoard[i][0].isEmpty() )
             return true;
 
         // Diagonal - Up
-        if( (ticTacToeBoard[0][2] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][0]) && (ticTacToeBoard[0][2] != null) )
+        if( (ticTacToeBoard[0][2] == ticTacToeBoard[1][1]) && (ticTacToeBoard[1][1] == ticTacToeBoard[2][0]) && !ticTacToeBoard[i][0].isEmpty()  )
             return true;
 
         return false;
@@ -120,7 +104,7 @@ public class Board {
     public void clearBoard() {
         for(int i = 0; i < 3; i++)
             for(int k = 0; k < 3; k++)
-                ticTacToeBoard[i][k] = null;
+                ticTacToeBoard[i][k] = "";
     }
 
     public String changePlayer() {
