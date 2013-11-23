@@ -42,23 +42,7 @@ public class Board {
     public String[][] getTicTacToeBoard() {
         return ticTacToeBoard;
     }
-
-    public void newGame()
-    {
-        
-        currentPlayer = "X";
-
-        for(int i = 0; i < gameSize; i++)
-        {   
-            for(int k = 0; k < gameSize; k++)
-            {
-                ticTacToeBoard[i][k] = null;
-            }
-        }
-
-        //countMoves = 0;
-    }
-
+    
     public void setTicTacToeBoard(String[][] ticTacToeBoard) {
         this.ticTacToeBoard = ticTacToeBoard;
     }
@@ -66,7 +50,7 @@ public class Board {
     public boolean isEmpty() {
         for(int i = 0; i < 3; i++)
             for(int k = 0; k < 3; k++)
-                if(ticTacToeBoard[i][k] != null && !ticTacToeBoard[i][k].isEmpty())
+                if(!ticTacToeBoard[i][k].isEmpty())
                     return false;
 
 
@@ -78,7 +62,7 @@ public class Board {
         {
             for(int a = 0; a < 3; a++)
             {
-                if(ticTacToeBoard[i][a] == null || ticTacToeBoard[i][a].isEmpty()) {
+                if(ticTacToeBoard[i][a].isEmpty()) {
                     return false;
                 }
             }

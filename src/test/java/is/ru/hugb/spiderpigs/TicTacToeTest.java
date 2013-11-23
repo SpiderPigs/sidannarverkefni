@@ -116,9 +116,9 @@ public class TicTacToeTest {
     @Test
     public void testX0Y0toX2Y2DiagonalWin() {
         String[][] wonGame = new String[3][3];
-        wonGame[0][0] = "X";
+        wonGame[0][2] = "X";
         wonGame[1][1] = "X";
-        wonGame[2][2] = "X";
+        wonGame[2][0] = "X";
         board.setTicTacToeBoard(wonGame);
         assertEquals(true, this.board.someoneWinner());
     }

@@ -108,7 +108,7 @@ public class TicTacToe {
         post(new Route("/newGame") {
             @Override
             public Object handle(Request request, Response response) {
-                ttt.newGame();
+                response.redirect("/")
                 return "newGameSet";
             }
         });
