@@ -9,7 +9,7 @@ script:
   - ./bin/unit_test
   - ./bin/travis_heroku_deploy
   - sleep 20 # wait for heroku to serve the app.
-  - if [ ! "$TRAVIS_BRANCH" = "production" ]; then ./bin/e2e_test_travis; fi
+  - if [ ! "$TRAVIS_BRANCH" = "production" ]; then ./bin/e2e_test; fi
 
 env:
   global:
