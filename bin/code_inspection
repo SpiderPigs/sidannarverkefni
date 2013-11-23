@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mvn checkstyle:checkstyle
+
+# open the stats
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+   open target/site/checkstyle.html
+else
+   firefox target/site/checkstyle.html
+fi
