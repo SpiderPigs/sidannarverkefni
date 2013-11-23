@@ -106,13 +106,6 @@
 				</configuration>
 			</execution>
 		  </executions>
-			<reportSets>
-			<reportSet>
-				<reports>
-					<report>checkstyle</report>
-				</reports>
-			</reportSet>
-			</reportSets>
         </plugin>
     </plugins>
   </build>
