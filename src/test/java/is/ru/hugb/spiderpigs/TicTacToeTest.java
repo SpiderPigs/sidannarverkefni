@@ -24,7 +24,7 @@ public class TicTacToeTest {
 	@Test
 	public void isBoardEmpty() {
         board.setTicTacToeBoard(new String[3][3]);
-		assertEquals(true, board.isEmpty());
+		assertEquals(true, board.isBoardEmpty());
 	}
 	@Test
 	public void boardIsFull() {
@@ -52,7 +52,7 @@ public class TicTacToeTest {
         this.board.setTicTacToeBoard(gameBoard);
         this.board.clearBoard();
 
-        assertEquals(true, this.board.isEmpty());
+        assertEquals(true, this.board.isBoardEmpty());
     }
 
     @Test
