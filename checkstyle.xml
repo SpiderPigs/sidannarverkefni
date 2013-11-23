@@ -91,9 +91,6 @@
         <!-- Checks for whitespace                               -->
         <!-- See http://checkstyle.sf.net/config_whitespace.html -->
         <module name="NoWhitespaceBefore"/>
-        <module name="WhitespaceAround">
-			<property name="tokens" value="ASSIGN, LITERAL_IF, LITERAL_ELSE, LITERAL_RETURN, LITERAL_FOR, LITERAL_WHILE, PLUS, MINUS"/>
-
 
 
         <!-- Checks for blocks. You know, those {}'s         -->
