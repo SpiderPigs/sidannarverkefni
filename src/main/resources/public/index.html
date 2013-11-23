@@ -19,20 +19,21 @@
 
           <form method="post" action="/play" class="hidden" id="game-form">
               <input type="hidden" name="current-player" id="current-player" value="X"/>
-              <input type="hidden" name="x0y0" />
-              <input type="hidden" name="x1y0" />
-              <input type="hidden" name="x2y0" />
-              <input type="hidden" name="x0y1" />
-              <input type="hidden" name="x1y1" />
-              <input type="hidden" name="x2y1" />
-              <input type="hidden" name="x0y2" />
-              <input type="hidden" name="x1y2" />
-              <input type="hidden" name="x2y2" />
+              <input type="hidden" name="x0y0" class="pos" />
+              <input type="hidden" name="x1y0" class="pos" />
+              <input type="hidden" name="x2y0" class="pos" />
+              <input type="hidden" name="x0y1" class="pos" />
+              <input type="hidden" name="x1y1" class="pos" />
+              <input type="hidden" name="x2y1" class="pos" />
+              <input type="hidden" name="x0y2" class="pos" />
+              <input type="hidden" name="x1y2" class="pos" />
+              <input type="hidden" name="x2y2" class="pos" />
           </form>
+          <p id="textCurrent">Current player is X</p>
           <div id="game">
               <table>
                   <tr>
-                      <td class="tile" id="x0y0"></td>
+                      <td class="tile" id="x0y0">dd</td>
                       <td class="tile" id="x1y0"></td>
                       <td class="tile" id="x2y0"></td>
                   </tr>
@@ -49,6 +50,9 @@
                   </tr>
               </table>
           </div>
+          <form method="post" action="/newGame" id="newGame">
+            <button type="button" id="newGameBtn">New Game</button> 
+          </form>
         </div>
     </div>
 
@@ -77,11 +81,35 @@
                         $("#game-body").html(response);
                     }
                 });
+
+                $.ajax({ // Fá currentuser og setja það í current-ölayer
+                   url: form.attr("/getCurrentUser"),
+                   type: "POST",
+                    success: function(response) {
+                        $("#current-player").val(response);
+                        $("#textCurrent").text("Current player is"+$("#current-player").val());
+                    }
+                });
             }
-        })
+        });
 
+      // When we click on "New Game" button we run this script which 
+      // change all text inside tile class to "", value inside hidden input
+      // and sends POST method to /newGame 
+      $("#game-body").on("click","#newGameBtn", function(e) {
+        e.preventDefault();
 
-    });
+        $(".tile").text("");
+        $("#current-player").val("X");
+        $(".pos").val("");
+
+        $.ajax({
+          url: $("#newGame").attr("action"),
+          type: "POST"
+          });
+        });
+
+      });
     </script>
   </body>
 </html>
