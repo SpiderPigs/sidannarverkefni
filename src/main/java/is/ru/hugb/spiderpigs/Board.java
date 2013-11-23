@@ -63,7 +63,7 @@ public class Board {
         {
             for(int a = 0; a < 3; a++)
             {
-                if(ticTacToeBoard[i][a].isEmpty()) {
+                if(ticTacToeBoard[i][a].isEmpty() || ticTacToeBoard[i][a] == null) {
                     return false;
                 }
             }
