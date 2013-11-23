@@ -73,7 +73,6 @@
 
         <!-- Checks for imports                              -->
         <!-- See http://checkstyle.sf.net/config_import.html -->
-        <module name="AvoidStarImport"/>
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
 
@@ -81,10 +80,10 @@
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
         <module name="LineLength">
-			<property name="max" value="120"/>
+			<property name="max" value="300"/>
 		</module>
         <module name="MethodLength">
-			<property name="max" value="60"/>
+			<property name="max" value="171"/>
 		</module>
 
 
@@ -101,7 +100,6 @@
 
         <!-- Checks for common coding problems               -->
         <!-- See http://checkstyle.sf.net/config_coding.html -->
-        <module name="AvoidInlineConditionals"/>
         <module name="EmptyStatement"/>
         <module name="InnerAssignment"/>
         <module name="SimplifyBooleanExpression"/>
